@@ -1,0 +1,3 @@
+declare class Variant {
+  static select<T>(key: string, variants: {[k: string]: T}): T;
+};

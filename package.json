@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "description": "",
+  "repository": "rmhartog/babel-plugin-variant-select",
+  "author": "Reinier Hartog <rhartog@xebia.com>",
+  "main": "lib/index.js",
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "jest": "^17.0.3"
+  },
+  "scripts": {
+    "clean": "rm -rf lib",
+    "build": "babel src -d lib && cp src/*.js.flow lib/",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch",
+    "prepublish": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "babel-plugin"
+  ]
+}
