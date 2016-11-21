@@ -1,5 +1,6 @@
 {
-  "version": "1.0.0",
+  "name": "babel-plugin-variant-select",
+  "version": "1.0.1",
   "description": "",
   "repository": "rmhartog/babel-plugin-variant-select",
   "author": "Reinier Hartog <rhartog@xebia.com>",

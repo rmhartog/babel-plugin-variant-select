@@ -7,15 +7,16 @@
 **In**
 
 ```js
-// input code
+// Set VARIANT_color environment variable to green
+var color = Variant.select('color', {
+  green: '#00fa00'
+});
 ```
 
 **Out**
 
 ```js
-"use strict";
-
-// output code
+var color = '#00fa00';
 ```
 
 ## Installation
