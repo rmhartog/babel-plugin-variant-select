@@ -12,4 +12,4 @@ function getTransformOptions() {
   return config;
 }
 
-export default getTransformOptions;
+module.exports = getTransformOptions;
