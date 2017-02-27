@@ -34,7 +34,23 @@ export default function({ types: t }) {
         if (properties.length !== 1) {
           throw path.buildCodeFrameError(`Argument of Variant.select does not contain key for ${variantName} value of ${variantValue}.`);
         }
-        path.parentPath.replaceWith(properties[0].value);
+        const variantOutputValues = process.env['VARIANT_OUTPUT_VALUES'];
+        if (variantOutputValues && variantOutputValues.toLowerCase() === 'true' && t.isObjectExpression(properties[0].value)) {
+          const objectWithValues = t.callExpression(
+            t.memberExpression(t.identifier("Object"), t.identifier("defineProperty")),
+            [
+              properties[0].value,
+              t.stringLiteral("VARIANT_VALUES"),
+              t.objectExpression([
+                t.objectProperty(t.stringLiteral('enumerable'), t.booleanLiteral(false)),
+                t.objectProperty(t.stringLiteral('value'), variants)
+              ])
+            ]
+          );
+          path.parentPath.replaceWith(objectWithValues);
+        } else {
+          path.parentPath.replaceWith(properties[0].value);
+        }
       }
     }
   };

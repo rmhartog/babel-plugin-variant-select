@@ -118,4 +118,23 @@ describe('the plugin', () => {
 
     expect(result.code).toEqual("var color = '#00fa00';");
   });
+
+  it('exposes all variants on non-enumerable key when VARIANT_OUTPUT_VALUES is set to true', () => {
+    process.env.VARIANT_OUTPUT_VALUES = 'true';
+    process.env.VARIAT_color = 'green';
+
+    const input = "                           \
+      var color = Variant.select(\"color\", { \
+        default: { val: 'default' },          \
+        green: { val: '#00fa00' },            \
+        red: { val: '#fa0000' },              \
+      });                                     \
+    ";
+
+    const result = transform(input, {
+      plugins: [ plugin ]
+    });
+
+    expect(result.code).toMatchSnapshot();
+  });
 });
