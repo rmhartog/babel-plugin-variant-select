@@ -121,7 +121,7 @@ describe('the plugin', () => {
 
   it('exposes all variants on non-enumerable key when VARIANT_OUTPUT_VALUES is set to true', () => {
     process.env.VARIANT_OUTPUT_VALUES = 'true';
-    process.env.VARIAT_color = 'green';
+    process.env.VARIANT_color = 'green';
 
     const input = "                           \
       var color = Variant.select(\"color\", { \
