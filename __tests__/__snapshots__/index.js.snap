@@ -1,5 +1,5 @@
 exports[`the plugin exposes all variants on non-enumerable key when VARIANT_OUTPUT_VALUES is set to true 1`] = `
-"var color = Object.defineProperty({ val: \'default\' }, \'VARIANT_VALUES\', {
+"var color = Object.defineProperty({ val: \'#00fa00\' }, \'VARIANT_VALUES\', {
                                  \'enumerable\': false,
                                  \'value\': { default: { val: \'default\' }, green: { val: \'#00fa00\' }, red: { val: \'#fa0000\' } }
 });"
